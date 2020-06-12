@@ -1,0 +1,97 @@
+import java.util.*;
+
+class Node{
+    public int data;
+    public Node next;
+
+    //public String toString(){
+    //    return String.valueOf(data) + String.valueOf(next);
+   // }
+    
+   
+}
+
+class LinkedList{
+    
+     public static void createLinkedList(Node newNode, Node head){
+        
+        Node temp = head;
+        if(temp.next == null){
+            head.next = newNode;
+        }
+        else{
+            
+            while(temp.next!=null){
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+    
+    public static void traverseLinkedList(Node head){
+        
+        if(head.next==null){
+            System.out.println("Linked List is empty");
+        }
+        else{
+            Node temp = head;
+            while(temp.next!=null){
+                System.out.print(temp.next.data+" ---> ");
+                temp = temp.next;
+            }
+        }
+    }
+       public static void deleteLinkedList(Node head,int itemToBeDeleted){
+        
+        if(head.next==null){
+            System.out.println("Linked List is empty");
+        }
+        else{
+            Node temp = head;
+            while(temp.next!=null){
+                if(temp.next.data == itemToBeDeleted){
+                    temp.next = temp.next.next;
+                }
+                temp = temp.next;
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // Your code here!
+        
+        System.out.println("XXXXXXXX");
+        Node head = new Node();
+        Node node = new Node();
+        node.data = 5;
+        LinkedList.createLinkedList(node,head);
+        Node node1 = new Node();
+        node1.data = 7;
+        LinkedList.createLinkedList(node1,head);
+         Node node2 = new Node();
+        node2.data = 8;
+        LinkedList.createLinkedList(node2,head);
+         Node node3 = new Node();
+        node3.data = 9;
+        LinkedList.createLinkedList(node3,head);
+         Node node4 = new Node();
+        node4.data = 10;
+        LinkedList.createLinkedList(node4,head);
+        System.out.println(head.next);
+        System.out.println(node.data);
+        System.out.println(node.next);
+        System.out.println(head.next);
+        System.out.println(node1.data);
+        System.out.println(node1.next);
+        LinkedList.traverseLinkedList(head);
+        LinkedList.deleteLinkedList(head,9);
+        LinkedList.traverseLinkedList(head);
+        
+        
+        
+        
+        
+    }
+}
